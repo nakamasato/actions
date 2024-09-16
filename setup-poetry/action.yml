@@ -65,7 +65,6 @@ runs:
       shell: bash
       run: |
         poetry config cache-dir
-        ls $(poetry config cache-dir)
         "$HOME/.local/bin/poetry" install --no-interaction --no-root
 
     #----------------------------------------------
@@ -77,3 +76,10 @@ runs:
       run: |
         ls ~/.local/bin
         "$HOME/.local/bin/poetry" install --no-interaction
+
+    - name: check
+      if: inputs.install-dependencies == 'true'
+      shell: bash
+      run: |
+        poetry config cache-dir
+        ls $(poetry config cache-dir)
