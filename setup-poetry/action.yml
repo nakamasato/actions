@@ -44,7 +44,7 @@ runs:
       with:
         version: ${{ steps.get-poetry-version.outputs.POETRY_VERSION }}
         virtualenvs-create: true
-        virtualenvs-in-project: true
+        virtualenvs-in-project: false
         installer-parallel: true
 
     #----------------------------------------------
