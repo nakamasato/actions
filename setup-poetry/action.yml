@@ -64,6 +64,8 @@ runs:
       if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true' && inputs.install-dependencies == 'true'
       shell: bash
       run: |
+        poetry config cache-dir
+        ls $(poetry config cache-dir)
         "$HOME/.local/bin/poetry" install --no-interaction --no-root
 
     #----------------------------------------------
